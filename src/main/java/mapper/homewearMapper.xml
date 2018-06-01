@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.shopping.dao.HomewearDao">
+
+    <select id="findById" resultType="org.shopping.entity.Homewear">
+        SELECT * FROM homewear WHERE id = #{id}
+    </select>
+
+    <select id="findAll" resultType="org.shopping.entity.Homewear">
+        SELECT * FROM homewear
+    </select>
+
+    <insert id="add" parameterType="org.shopping.entity.Homewear">
+        INSERT INTO homewear(type,name,color,size,price,picture) VALUES(#{type},#{name},#{color},#{size},#{price},#{picture})
+    </insert>
+    
+    <delete id="deleteById" parameterType="org.shopping.entity.Homewear">
+        DELETE FROM homewear WHERE id = #{id}
+    </delete>
+    
+    <update id="update" parameterType="org.shopping.entity.Homewear">
+        UPDATE homewear set type = #{type} ,name = #{name},color = #{color},size = #{size},price = #{price} WHERE id = #{id}
+    </update>
+
+
+</mapper>

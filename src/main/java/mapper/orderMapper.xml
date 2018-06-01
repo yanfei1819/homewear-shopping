@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.shopping.dao.OrderDao">
+
+    <select id="findById" resultType="org.shopping.entity.Order">
+        SELECT * FROM orders WHERE id = #{id}
+    </select>
+
+    <select id="findAll" resultType="org.shopping.entity.Order">
+        SELECT * FROM orders
+    </select>
+
+    <insert id="mkOrder" parameterType="org.shopping.entity.Order">
+        INSERT INTO orders(userId,shoppingCarId,shopDate,status) VALUES(#{userId},#{shoppingCarId}, DATE_FORMAT(NOW(),'%y-%m-%d'),'未支付')
+    </insert>
+
+    <delete id="deleteById" parameterType="org.shopping.entity.Order">
+        DELETE FROM orders WHERE orderId = #{orderId}
+    </delete>
+
+    <update id="update" parameterType="org.shopping.entity.Order">
+        UPDATE orders set status = '已支付' WHERE orderId = #{orderId}
+    </update>
+
+
+</mapper>

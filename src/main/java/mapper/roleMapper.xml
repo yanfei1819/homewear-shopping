@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.shopping.dao.RoleDao">
+
+    <!--注意返回数值的类型是resultType而不是resultMap-->
+    <select id="roleAccount" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        SELECT count(*) FROM role;
+    </select>
+
+    <select id="findRoles" resultType="org.shopping.entity.Role">
+        SELECT * FROM role;
+    </select>
+
+</mapper>

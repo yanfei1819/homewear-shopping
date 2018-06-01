@@ -1,0 +1,1 @@
+package org.shopping.service;import org.shopping.entity.Order;import java.util.List;public interface OrderService {    List<Order> findAll();    Order findById(int id);    int add(Order order);    int update(Order order);    int deleteById(int orderId);    int mkOrder(int userId,int shoppingCarId);}

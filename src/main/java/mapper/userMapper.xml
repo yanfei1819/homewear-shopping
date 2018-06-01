@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.shopping.dao.UserDao">
+
+    <!--<select id="findCount" resultMap="java.lang.Integer" parameterType="java.lang.Integer">-->
+        <!--SELECT count(*) FROM user-->
+    <!--</select>-->
+
+   <select id="findById" resultType="org.shopping.entity.User">
+        SELECT * FROM user WHERE userId = #{userId}
+    </select>
+   <select id="findByName" resultType="org.shopping.entity.User">
+        SELECT * FROM user WHERE name = #{name}
+    </select>
+
+    <select id="login" resultType="org.shopping.entity.User">
+        SELECT * FROM user WHERE name = #{username} AND password = #{password}
+    </select>
+
+    <select id="findAll" resultType="org.shopping.entity.User">
+        SELECT * FROM user
+    </select>
+
+    <select id="findAllByCondition" resultType="org.shopping.entity.User">
+        SELECT * FROM user WHERE mobile = #{mobile}
+    </select>
+
+    <insert id="add" parameterType="org.shopping.entity.User">
+        INSERT INTO user(name,age,role,password,mobile,address) VALUES(#{name},#{age},#{role},#{password},#{mobile},#{address})
+    </insert>
+    
+    <delete id="deleteById" parameterType="org.shopping.entity.User">
+        DELETE FROM user WHERE userId = #{userId}
+    </delete>
+    
+    <update id="update" parameterType="org.shopping.entity.User">
+        UPDATE user set name = #{name} ,age = #{age},role = #{role},password = #{password},mobile = #{mobile},address = #{address} WHERE userId = #{userId}
+    </update>
+
+
+</mapper>

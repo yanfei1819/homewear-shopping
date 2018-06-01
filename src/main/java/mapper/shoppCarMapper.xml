@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.shopping.dao.ShoppCarDao">
+
+    <select id="findById" resultType="org.shopping.entity.ShoppCar">
+        SELECT * FROM shoppingcar WHERE shoppCarId = #{shoppCarId}
+    </select>
+
+    <select id="findAll" resultType="org.shopping.entity.ShoppCar">
+        SELECT * FROM shoppingcar
+    </select>
+
+    <!--<insert id="add" parameterType="org.shopping.entity.ShoppCar">-->
+        <!--INSERT INTO shoppingcar(name,age,role,password,mobile,address) VALUES(#{name},#{age},#{role},#{password},#{mobile},#{address})-->
+    <!--</insert>-->
+
+    <delete id="deleteById" parameterType="org.shopping.entity.ShoppCar">
+        DELETE FROM shoppingcar WHERE shoppCarId = #{shoppCarId}
+    </delete>
+
+    <update id="updateShoppCarNo" parameterType="org.shopping.entity.ShoppCar">
+        UPDATE shoppingcar set homeWearNo = #{homeWearNo} WHERE shoppCarId = #{shoppCarId}
+    </update>
+
+    <update id="updtaCarNo" parameterType="org.shopping.entity.ShoppCar">
+        UPDATE shoppingcar set homeWearNo = #{homeWearNo} WHERE shoppCarId = #{shoppCarId}
+    </update>
+
+    <delete id="clearCar">
+        DELETE FROM shoppingcar
+    </delete>
+
+    <insert id="addCar">
+        INSERT INTO shoppingcar(homewearId,userId,price) VALUES(#{price},#{userId},#{price})
+    </insert>
+</mapper>
